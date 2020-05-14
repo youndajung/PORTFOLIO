@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      .jbTitle {
+        text-align: center;
+      }
+      .jbMenu {
+        text-align: center;
+        background-color: yellow;
+        padding: 10px 0px;
+        width: 100%;
+      }
+      .jbContent {
+        height: 2000px;
+      }
+      .jbFixed {
+        position: fixed;
+        top: 0px;
+      }
+    </style>
+    <script>
+      $( document ).ready( function() {
+        var jbOffset = $( '.jbMenu' ).offset();
+        $( window ).scroll( function() {
+          if ( $( document ).scrollTop() > jbOffset.top ) {
+            $( '.jbMenu' ).addClass( 'jbFixed' );
+          }
+          else {
+            $( '.jbMenu' ).removeClass( 'jbFixed' );
+          }
+        });
+      } );
+    </script>
+  </head>
+  <body>
+    <div class="jbTitle">
+      <h1>Site Title</h1>
+    </div>
+    <div class="jbMenu">
+      <p>
+        First Menu
+        Second Menu
+        Third Menu
+        Fourth Menu
+      </p>
+    </div>
+    <div class="jbContent">
+    </div>
+  </body>
+</html>

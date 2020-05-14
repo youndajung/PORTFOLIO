@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(function(){
+			var menuPos=$(".nav").offset().top;
+			var car1Pos=$("#car1").offset().top;
+			var car2Pos=$("#car2").offset().top;
+			var hHalf=$(document).height()/2;
+			console.log(hHalf);
+			$(".menuPos").html(parseInt(menuPos));
+			 	scrollYPo();
+
+			$(window).scroll(function(){
+				scrollYPo();
+			});
+			function scrollYPo(){
+				var scrollY=$(window).scrollTop();
+				
+				$(".scrollY").html(parseInt(scrollY));
+				if(scrollY>menuPos){
+					$(".nav").addClass("fixed");
+				}else{
+					$(".nav").removeClass("fixed");
+				}
+				if(scrollY>hHalf){
+					$(".top").addClass("show1");
+				}else{
+					$(".top").removeClass("show1");
+				}
+			}
+
+			
+
+
+		});
+	</script>
+	<style>
+
+		.viewBox{
+			position: fixed; 
+			width: 200px; height: 200px; 
+			right: 30px; top: 100px;
+			background-color: pink;
+		}
+		.nav{width: 100%; height: 100px;}
+		.nav.fixed{position: fixed; height: 40px; top: 0;}
+		.nav li{
+			float: left;
+			width: 20%; height: 100px; 
+			text-align: center; 
+			line-height: 40px;
+			background-color: skyblue;
+		}
+		#car1{
+			position: absolute; left: 30px; 
+			width: 120px; height: 70px; 
+			transition:.3s;
+			opacity:0;
+		}
+		#car1.move{left: 500px; opacity:1;}
+		#car2{
+			position: absolute;
+			width: 120px; height: 70px; right:30px;
+			transition:.3s;
+			right: 0;
+			opacity:0;
+			transform:rotateY(180deg);
+		}
+		#car2.move2{right: 500px; opacity:1;}
+
+		.top{
+			position: fixed; 
+			width: 100px; height: 50px; 
+			line-height: 50px;
+			right: 50px; bottom: 50px; 
+			border-radius: 50%; 
+			background-color: #000; color:#fff; 
+			text-align: center; 
+			cursor:pointer; 
+			animation:viewTop 1s infinite alternate;
+			transition:.5s;
+			opacity:0;
+		}
+		@keyframes viewTop{
+			from{transform:translateY(-20px);}
+			to{transform:translateY(0);}
+		}
+		.top.show1{opacity:1;}
+	</style>
+</head>
+<body>
+	<div class="viewBox">
+		스크롤의위치 <span class="scrollY">0</span><br>
+		메뉴의위치 <span class="menuPos">0</span><a href="">이동</a>
+	</div>
+	<div id="wrapper">
+		<div class="nav">
+			<ul class="clearfix">
+				<li>menu1</li>
+				<li>menu2</li>
+				<li>menu3</li>
+				<li>menu4</li>
+				<li>menu5</li>
+			</ul>
+		</div>
+		<p>50</p>
+		<p>51</p>
+		<p>52</p>
+		<p>53</p>
+		<p>54</p>
+		<p>55</p>
+		<p>56</p>
+		<p>57</p>
+		<p>58</p>
+		<p>59</p>
+		<img src="../../images/car.png" alt="" id="car1">
+		<p>60</p>
+		<p>61</p>
+		<p>62</p>
+		<p>63</p>
+		<img src="../../images/car.png" alt="" id="car2">
+		<p>64</p>
+		<p>65</p>
+		<p>66</p>
+		<p>67</p>
+		<p>68</p>
+		<p>69</p>
+		<p>70</p>
+		<p>71</p>
+		<p>72</p>
+		<p>73</p>
+		<p>74</p>
+		<p>75</p>
+		<p>76</p>
+		<p>77</p>
+		<p>78</p>
+		<p>79</p>
+		<p>80</p>
+		<p>81</p>
+		<p>82</p>
+		<p>83</p>
+		<p>84</p>
+		<p>85</p>
+		<p>86</p>
+		<p>87</p>
+		<p>88</p>
+		<p>89</p>
+		<p>90</p>
+		<p>91</p>
+		<p>92</p>
+		<p>93</p>
+		<p>94</p>
+		<p>95</p>
+		<p>96</p>
+		<p>97</p>
+		<p>98</p>
+		<p>99</p>
+		<p>100</p>
+	</div>
+	<div class="top">UP</div>
+</body>
+</html>
